@@ -2,9 +2,12 @@ package com.ricarte.workshopmongo.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.ricarte.workshopmongo.dto.AuthorDTO;
+import com.ricarte.workshopmongo.dto.CommentsDTO;
 
 public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -14,6 +17,8 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	
+	private List<CommentsDTO> comments = new ArrayList<>();
 	
 	public Post() {
 		
@@ -66,6 +71,14 @@ public class Post implements Serializable {
 
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
+	}
+
+	public List<CommentsDTO> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentsDTO> comments) {
+		this.comments = comments;
 	}
 
 	@Override
